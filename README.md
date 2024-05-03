@@ -15,8 +15,10 @@ def calcular_promedio(numeros):
         return 0  # retorna 0 si la lista esta vacia para evitar una division por cero
     
     suma_total = sum(numeros)  # suma todos los elementos de la lista
-    cantidad_numeros = len(numeros)  # obtiene la cantidad de numeros en la lista
-    promedio = suma_total / cantidad_numeros  # calcula el promedio
+
+    cant_numeros = len(numeros)  # obtiene la cantidad de numeros en la lista
+
+    promedio = suma_total / cant_numeros  # calcula el promedio
     
     return promedio
 
@@ -33,7 +35,7 @@ print(f"El promedio de los numeros es: {resultado}")
 `sum(numeros)`: Suma todos los elementos de la lista.
 `len(numeros)`: Cuenta la cantidad de elementos en la lista.
 Divide la suma total por la cantidad de elementos para obtener el promedio.
-+ **Ejemplo de uso**: Se define una lista de numeros reales y se llama a la funcion `calcular_promedio` para obtener y mostrar el promedio.
++ **Ejemplo de uso**: Se define una lista de numeros reales y se llama a la funcion `calc_promedio` para obtener y mostrar el promedio.
 
 _______________________________
 ## **Punto 2**
@@ -46,7 +48,7 @@ def producto_punto(arr1, arr2):
 
     if len(arr1) != len(arr2):  # verifica que ambos arreglos tengan el mismo tamaño
 
-        return None  # retorna None si los arreglos no son del mismo tamaño
+        return None  # retorna None si los arreglos no son del mismo tamaño 
     
     resultado = sum(x * y for x, y in zip(arr1, arr2))  # calcula el producto punto
     return resultado
@@ -58,11 +60,10 @@ arr2 = [4, 5, 6]
 resultado = producto_punto(arr1, arr2)
 
 if resultado is not None:
-    print(f"El producto punto de los arreglos es: {resultado}")
+    print(f"El producto punto de las listas es: {resultado}")
 
 else:
-    print("Los arreglos deben tener el mismo tamaño.")
-
+    print("Las listas deben tener el mismo tamaño.")
 ```
 
 ### Explicacion P2:
@@ -77,10 +78,50 @@ else:
 _______________________________
 ## **Punto 3**
 
-**Instrucciones:**
+**Instrucciones:** Hacer un algoritmo que deje al final de un arreglo de numeros todos los ceros que aparezcan en dicho arreglo.
 
 ```python
+def mov_ceros(arr):
+
+    no_ceros = [x for x in arr if x != 0]  # lista con TODOS los elementos que NO son cero
+
+    
+    ceros = [x for x in arr if x == 0]     # lista con todos los ceros
+    
+    
+    return no_ceros + ceros                # concatena las listas de no ceros y ceros
+
+# ejem de uso:
+
+arr = [0, 1, 0, 3, 12, 0]
+resultado = mov_ceros(arr)
+
+print(f"Arreglo con ceros al final: {resultado}")
 ```
+
+### Explicacion P3:
++ **Funcion `mov_ceros`**: Esta funcion acepta una lista `arr` como argumento.
++ **Lista `no_ceros`**: Utiliza list comprehension para crear una lista de todos los elementos en arr que no son cero.
++ **Lista `ceros`**: Utiliza otra list comprehension para recolectar todos los ceros del arreglo.
++ **Retorno**: Retorna la concatenacion de las listas `no_ceros` y `ceros`, poniendo asi todos los ceros al final del arreglo original.
++ **Ejemplo de uso**: Define un arreglo de ejemplo y muestra el resultado despues de aplicar la funcion.
+
+_______________________________
+## **Punto 4**
+
+**Instrucciones:** Revisar que son los algoritmos de sorting, entender bubble-sort ([enlace a implementacion](http://https://www.geeksforgeeks.org/bubble-sort/ "enlace a implementacion")).
+
+**Mi explicacion**:
+
+Los algoritmos de *sorting*, o algoritmos de ordenamiento, son tecnicas que se utilizan para *reordenar elementos* en una secuencia (como una lista o un arreglo) en un orden especifico, generalmente ascendente o descendente
+
++ Bubble sort
+
+El algoritmo de Bubble Sort, o "ordenamiento de burbuja", es uno de los metodos de ordenamiento mas sencillos pero menos eficientes en terminos de tiempo de ejecucion, especialmente para listas grandes. La idea basica detras de Bubble Sort es:
+
+1. Comparar pares de elementos adyacentes en la lista o arreglo.
+2. Intercambiarlos si estan en el orden incorrecto.
+3. Repetir el proceso para cada par de la lista, recorriendola varias veces hasta que no se necesiten mas intercambios, lo que significa que la lista esta ordenada.
 
 _______________________________
 FIN RETO.
